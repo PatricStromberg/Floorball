@@ -1,6 +1,9 @@
 ﻿using System;
 using FloorballApp.Services;
 using FloorballApp.Views;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 
 namespace FloorballApp
@@ -18,7 +21,9 @@ namespace FloorballApp
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AppCenter.Start("ios=4645fc84-66d5-417c-98f4-4622ca57fc52;" + "uwp={Your UWP App secret here};" +
+                   "android={Your Android App secret here}",
+                   typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
